@@ -1,0 +1,102 @@
+---
+// more personal/code imports
+import Modal from "@xexiu/astro-modal";
+import CardOptionIcon from "@icons/CardOptionIcon.astro";
+import CardSendIcon from '@icons/CardSendIcon.astro';
+---
+
+<Modal
+  id="myAwsomeModal"
+  classes="mx-auto rounded-lg shadow bg-white dark:bg-neutral-900 w-full sm:max-w-md"
+  ariaLabel="Share on social"
+  btnCloseAriaLabel="Close Modal"
+  btnText="&nbsp;"
+>
+  <div
+    class="inline-flex cursor-pointer items-center justify-center gap-1 rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700"
+    slot="open-modal-button"
+  >
+    Contact Me <CardOptionIcon />
+  </div>
+
+  <h2
+    class="text-xl font-semibold text-gray-900 dark:text-white"
+    slot="modal-title"
+  >
+    Contact Me
+  </h2>
+
+  <div slot="modal-main" class="text-gray-900 dark:text-white py-4">
+    <form class="w-full space-y-4" id="contact" method="POST" action={`https://formspree.io/f/`}>
+        <div>
+          <label for="name" class="mb-1 block text-sm font-medium text-gray-900 dark:text-white">Name (Required)</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            class="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white"
+            placeholder="Full Name"
+          />
+        </div>
+        <div>
+          <label for="emailorphone" class="mb-1 block text-sm font-medium text-gray-900 dark:text-white">Preferred Contact Method (Required)</label>
+          <input
+            type="text"
+            name="Email or Phone"
+            id="emailorphone"
+            placeholder="email@email.com | 123 456-7890"
+            class="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+          />
+        </div>
+        <div>
+          <label for="message" class="mb-1 block text-sm font-medium text-gray-900 dark:text-white">Message (Required)</label>
+          <textarea
+            id="message"
+            rows="4"
+            required
+            class="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+            placeholder="Write your thoughts here..."></textarea>
+        </div>
+      </form>
+  </div>
+  <div slot="modal-footer">
+    <form method="dialog">
+    <div class="mt-4 flex w-full justify-between">
+      <button
+      class="items-center gap-1 inline-flex w-4/12 justify-center cursor-pointer rounded-lg px-5 py-2.5 text-center text-sm font-medium text-grey-900 outline outline-1 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-white"
+      aria-label="Close Modal"
+      >
+        Close
+      </button>
+      <button
+        type="submit"
+        form="contact"
+        class="items-center gap-1 inline-flex w-4/12 justify-center cursor-pointer rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700"
+        >Send</button
+      >
+    </div>
+    </form>
+  </div>
+</Modal>
+
+<style is:global>
+  dialog {
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+  dialog::backdrop {
+    position: fixed;
+    inset: 0;
+    background: #212121;
+}
+  dialog[open] {
+    transition: opacity 0.1s;
+    animation: fade-opacity-in 0.1s forwards;
+    cursor: auto;
+  }
+  .modal-header {
+    border-bottom: 0px;
+  }
+</style>

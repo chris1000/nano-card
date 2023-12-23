@@ -1,0 +1,163 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import CardFlipIcon from '@icons/CardFlipIcon.astro';
+import CardEmailIcon from "@icons/CardEmailIcon.astro";
+import CardPhoneIcon from "@icons/CardPhoneIcon.astro";
+import ModalComponent from "@components/modal/modal.astro"
+---
+
+<Layout title="Chris Levine | Creative Technologist">
+  <article class="mx-auto flex w-full max-w-lg flex-grow items-center justify-center px-2">
+    <div id="card" class="flip flex flex-col justify-center">
+      <div
+        class="card side front flex w-full max-w-lg flex-col items-center rounded-lg border  border-gray-200 dark:border-gray-800 bg-white dark:bg-neutral-900 pb-5 shadow-md "
+      >
+        <Image
+          class="-mt-20 mb-3 w-36 rounded-full border-solid border-2 brightness-95 border-gray-100 dark:border-neutral-900 shadow-sm"
+          height={150}
+          width={150}
+          src="/image.jpg"
+          alt="Chris Levine"
+        />
+        <h1 class="mb-1 text-3xl font-semibold text-gray-900 dark:text-white">Chris Levine</h1>
+        <h2 class=" text-lg font-semibold text-gray-600 dark:text-gray-400">Creative Technologist</h2>
+        <ul class="my-3 w-full divide-y divide-gray-200 px-4 dark:divide-gray-700">
+          <li class="py-3 sm:pb-4">
+            <div class="flex justify-between space-x-4">
+              <div class="min-w-0 flex-1">
+                <a href={`tel:7705089417`}><CardPhoneIcon></a>
+              </div>
+              <div class="text-md inline-flex items-center font-medium text-gray-700 dark:text-white">
+                <a href={`tel:7705089417`}>(770) 508-9417</a>
+              </div>
+            </div>
+          </li>
+          <li class="py-3 sm:pb-4">
+            <div class="flex justify-between space-x-4">
+              <div class="min-w-0 flex-1">
+                <CardEmailIcon>
+                </div>
+              <div class="text-md inline-flex items-center font-medium text-gray-700 dark:text-white">
+                <a href={`mailto:chris@clevine.net`}>chris@clevine.net</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="flex w-full items-center justify-between px-4">
+          <button
+            type="button"
+            class="flipit items-center cursor-pointer gap-1 inline-flex justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700"
+            ><CardFlipIcon/>Portfolio</button
+          >
+
+          <ModalComponent />
+        </div>
+      </div>
+      <div
+        class="card side back flex w-full max-w-lg flex-col items-center rounded-lg border  bg-white p-5 pb-5 shadow-md border-gray-200 dark:border-gray-800 dark:bg-neutral-900"
+      >
+      <ul class="w-full">
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://almajeancollections.com/" class="dark:text-white block" target="_blank">Alma Jean Collections</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://www.cgiftedinteriors.com/" class="dark:text-white block" target="_blank">C-Gifted Interiors</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://chris1000.github.io/JCHSAccuracy/" class="dark:text-white block" target="_blank">JCHS Accuracy</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://loneoakretrievers.com/" class="dark:text-white block" target="_blank">Lone Oak Retrievers</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://nfinitesoundz.com/" class="dark:text-white block" target="_blank">Nfinite Soundz</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://solutions4u.co/" class="dark:text-white block" target="_blank">Solutions 4U</a>
+        </li>
+        <li class="w-full border-b-2 border-gray-200 py-4 dark:border-gray-400 text-gray-700 font-semibold">
+            <a href="https://www.southeasteuromotorsports.com/" class="dark:text-white block" target="_blank">Southeast Euro Motorsports</a>
+        </li>
+        <li class="w-full py-4 text-gray-700 font-semibold">
+            <a href="https://www.sevwa.com/" class="dark:text-white block" target="_blank">SEVWA</a>
+        </li>
+    </ul>
+    
+    
+        <div class="mt-4 flex w-full items-center justify-between">
+          <button
+            type="button"
+            class="flipit items-center gap-1 w-full inline-flex justify-center cursor-pointer rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700"
+            ><CardFlipIcon/>Contact Details</button
+          >
+         
+        </div>
+      </div>
+    </div>
+  </article>
+  </main>
+  <style>
+    .flip {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        perspective: 1000px; /* Keeps your original depth for the 3D effect */
+    }
+    
+    .side {
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    
+    .front {
+        transform: rotateY(0deg); /* Initial position of front */
+    }
+    
+    .back {
+        transform: rotateY(180deg); /* Initial position of back, rotated to the right */
+    }
+    
+    .do-the-flip .front {
+        transform: rotateY(180deg); /* Front flips right */
+    }
+    
+    .do-the-flip .back {
+        transform: rotateY(360deg); /* Back continues the rightward rotation */
+    }
+    </style>
+    
+    <script is:inline>
+    let cardElement; // Defined in the outer scope so it's accessible to both functions
+
+    function handleClick(event) {
+      const button = event.target.closest('.flipit');
+      if (button && cardElement) {
+        cardElement.classList.toggle('do-the-flip');
+
+        const isFlipped = cardElement.classList.contains('do-the-flip');
+        localStorage.setItem('cardFlipped', isFlipped ? 'true' : 'false');
+      }
+    }
+
+    function initCardElement() {
+      // Initialize 'cardElement' when the component is mounted
+      cardElement = document.getElementById('card');
+      if (cardElement) {
+        cardElement.addEventListener('click', handleClick);
+
+        const flippedState = localStorage.getItem('cardFlipped');
+        if (flippedState === 'true') {
+          cardElement.classList.add('do-the-flip');
+        }
+      }
+    }
+
+    // Runs on initial navigation
+    document.addEventListener('DOMContentLoaded', initCardElement);
+  </script>
+  <script src
+</Layout>
