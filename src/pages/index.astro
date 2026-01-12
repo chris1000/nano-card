@@ -5,7 +5,6 @@ import CardFlipIcon from '@icons/CardFlipIcon.astro';
 import CardEmailIcon from "@icons/CardEmailIcon.astro";
 import CardPhoneIcon from "@icons/CardPhoneIcon.astro";
 import ModalComponent from "@components/modal/modal.astro"
-import myImage from "/public/image.jpg"; // Image is 1600x900
 ---
 
 <Layout title="Chris Levine | Creative Technologist">
@@ -14,21 +13,9 @@ import myImage from "/public/image.jpg"; // Image is 1600x900
       <div
         class="card side front flex w-full max-w-lg flex-col items-center rounded-lg border  border-gray-200 dark:border-gray-800 bg-white dark:bg-neutral-900 pb-5 shadow-md "
       >
-      <Picture class="-mt-20 mb-3 w-36 rounded-full border-solid border-2 brightness-90 border-gray-100 dark:border-neutral-900 shadow-sm"
-      src={myImage} loading="eager" formats={['avif', 'webp']} alt="Chris Levine" />
         <h1 class="mb-1 text-3xl font-semibold text-gray-900 dark:text-white">Chris Levine</h1>
         <h2 class=" text-lg font-semibold text-gray-600 dark:text-gray-400">Creative Technologist</h2>
         <ul class="my-3 w-full divide-y divide-gray-200 px-4 dark:divide-gray-700">
-          <li class="py-3 sm:pb-4">
-            <div class="flex justify-between space-x-4">
-              <div class="min-w-0 flex-1">
-                <a aria-label="Call Chris Levine" href={`tel:7705089417`}><CardPhoneIcon></a>
-              </div>
-              <div class="text-md inline-flex items-center font-medium text-gray-700 dark:text-white">
-                <a aria-label="Call" href={`tel:7705089417`}>(770) 508-9417</a>
-              </div>
-            </div>
-          </li>
           <li class="py-3 sm:pb-4">
             <div class="flex justify-between space-x-4">
               <div class="min-w-0 flex-1">
